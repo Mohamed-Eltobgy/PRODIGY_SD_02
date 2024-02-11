@@ -2,6 +2,7 @@ package com.example.guessinggame;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.ParallelTransition;
+import javafx.animation.PauseTransition;
 import javafx.animation.ScaleTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,6 +26,8 @@ public class GuessController {
     @FXML
     private Label result;
     @FXML
+    private Label successGeneration;
+    @FXML
     private Button generate;
     @FXML
     private Button submit;
@@ -39,7 +42,7 @@ public class GuessController {
     private Integer generatedNumber, noOfAttempts;
 
     public void initialize() {
-        components = new Node[]{title, lower, upper, guess, result, generate, submit,
+        components = new Node[]{title, lower, upper, guess, result, successGeneration, generate, submit,
                 lowerField, upperField, answer};
         ParallelTransition allItems = createFadeTransitions(components);
         allItems.setDelay(Duration.seconds(1));
@@ -60,6 +63,9 @@ public class GuessController {
         answer.setTextFormatter(resultFormatter);
 
         result.setAlignment(Pos.CENTER);
+
+        successGeneration.setVisible(false);
+        successGeneration.setStyle("-fx-background-color: #FFFFE4");
     }
 
     public ParallelTransition createFadeTransitions(Node[] components) {
@@ -71,7 +77,7 @@ public class GuessController {
     }
 
     private FadeTransition createFadeTransition(Node node) {
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(3), node);
+        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(2.3), node);
         fadeTransition.setFromValue(0.0);
         fadeTransition.setToValue(1.0);
         return fadeTransition;
@@ -88,13 +94,14 @@ public class GuessController {
             generate.setScaleX(1.0);
             generate.setScaleY(1.0);
         });
-
+        successGeneration.setVisible(false);
         if ((lowerField.getText().length() == 1 && lowerField.getText().charAt(0) == '-')
                 || lowerField.getText().length() == 0) {
             showAlert("Please enter a valid Lower Bound value.");
         } else if ((upperField.getText().length() == 1 && upperField.getText().charAt(0) == '-')
                 || upperField.getText().length() == 0) {
             showAlert("Please enter a valid Upper Bound value.");
+
         } else {
             int lowerNumber = Integer.parseInt(lowerField.getText());
             int upperNumber = Integer.parseInt(upperField.getText());
@@ -105,6 +112,12 @@ public class GuessController {
                 noOfAttempts = 0;
                 result.setText("");
                 result.setStyle("-fx-background-color: transparent");
+                successGeneration.setVisible(true);
+                PauseTransition pauseTransition = new PauseTransition(Duration.seconds(2.5));
+                pauseTransition.setOnFinished(event -> {
+                    successGeneration.setVisible(false);
+                });
+                pauseTransition.play();
             }
         }
     }

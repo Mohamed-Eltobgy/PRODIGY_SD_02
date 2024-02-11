@@ -20,35 +20,40 @@
             <Font name="System Bold Italic" size="27.0" />
          </font>
       </Label>
-      <Label fx:id="lower" layoutX="34.0" layoutY="84.0" text="Lower bound:">
+      <Label fx:id="lower" layoutX="37.0" layoutY="39.0" text="Lower bound:">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="upper" layoutX="314.0" layoutY="84.0" text="Upper bound:">
+      <Label fx:id="upper" layoutX="317.0" layoutY="39.0" text="Upper bound:">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <TextField fx:id="lowerField" layoutX="151.0" layoutY="85.0" prefHeight="26.0" prefWidth="127.0" />
-      <TextField fx:id="upperField" layoutX="433.0" layoutY="85.0" prefHeight="26.0" prefWidth="127.0" />
-      <TextField fx:id="answer" layoutX="242.0" layoutY="254.0" />
-      <Label fx:id="guess" layoutX="126.0" layoutY="253.0" text="Enter a guess:">
+      <TextField fx:id="lowerField" layoutX="154.0" layoutY="40.0" prefHeight="26.0" prefWidth="127.0" />
+      <TextField fx:id="upperField" layoutX="436.0" layoutY="40.0" prefHeight="26.0" prefWidth="127.0" />
+      <TextField fx:id="answer" layoutX="247.0" layoutY="242.0" />
+      <Label fx:id="guess" layoutX="129.0" layoutY="242.0" text="Enter a guess:">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Button fx:id="submit" layoutX="417.0" layoutY="251.0" mnemonicParsing="false" onAction="#submitAnswer" style="-fx-background-radius: 45%; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0); -fx-background-color: #04f257;" text="Guess">
+      <Button fx:id="submit" layoutX="423.0" layoutY="239.0" mnemonicParsing="false" onAction="#submitAnswer" style="-fx-background-radius: 45%; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0); -fx-background-color: #808999;" text="Submit">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
-      <Button fx:id="generate" layoutX="200.0" layoutY="153.0" mnemonicParsing="false" onAction="#generateNumber" prefHeight="46.0" prefWidth="225.0" style="-fx-background-color: yellow; -fx-background-radius: 45%; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0);" text="Generate random number">
+      <Button fx:id="generate" layoutX="204.0" layoutY="81.0" mnemonicParsing="false" onAction="#generateNumber" prefHeight="46.0" prefWidth="225.0" style="-fx-background-color: yellow; -fx-background-radius: 45%; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 0);" text="Generate random number">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>
-      <Label fx:id="result" layoutX="132.0" layoutY="313.0" prefHeight="54.0" prefWidth="336.0">
+      <Label fx:id="result" layoutX="132.0" layoutY="299.0" prefHeight="54.0" prefWidth="336.0">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Label>
+      <Label fx:id="successGeneration" alignment="CENTER" layoutX="132.0" layoutY="180.0" prefHeight="39.0" prefWidth="350.0" text="A random number was generated successfully">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
